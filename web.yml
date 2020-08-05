@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: web-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLables: 
+      env: production
+
+  template:
+    metadata:
+      name: web-image
+      labels:
+        env: production
+    spec:
+      containers:
+        - name: web-image
+          image: sainimac/devweb:v1
+
+
